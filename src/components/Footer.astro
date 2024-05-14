@@ -1,0 +1,45 @@
+---
+const today: Date = new Date()
+---
+
+<footer>
+  <div
+    class='container flex flex-col items-center justify-center gap-4 py-10 md:h-24 md:flex-row md:py-0'
+  >
+    <div
+      class='flex flex-col items-center gap-4 px-6 md:flex-row md:gap-2 md:px-0'
+    >
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='24'
+        height='24'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        class='lucide lucide-command'
+        ><path
+          d='M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z'
+        ></path>
+      </svg>
+      <p class='text-center text-sm leading-loose md:text-left'>
+        &copy; {today.getFullYear()} . Built by <a
+          href='https://github.com/yayxs'
+          target='_blank'
+          rel='noreferrer'
+          class='font-medium underline underline-offset-4'
+          >vanlee
+        </a>
+        . The source code is available on <a
+          href='https://github.com/yayxs/astro-personal-brand'
+          target='_blank'
+          rel='noreferrer'
+          class='font-medium underline underline-offset-4'
+          >GitHub
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
