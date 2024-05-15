@@ -1,0 +1,5 @@
+/* ===== svg ===== */
+
+svg {
+  @apply inline-block h-6 w-6;
+}
