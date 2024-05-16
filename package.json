@@ -3,6 +3,12 @@
   "scripts": {
     "dev": "astro dev --port 3000"
   },
+  "keywords": [
+    "nginx",
+    "astro",
+    "tailwindcss",
+    "wordpress"
+  ],
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.8.3",
