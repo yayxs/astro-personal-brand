@@ -3,3 +3,8 @@ node_modules/
 
 # astro
 .astro
+
+## build
+.vercel
+.output
+.vercel/output/functions/index.func/node_modules
