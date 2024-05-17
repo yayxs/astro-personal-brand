@@ -3,7 +3,7 @@ author: vanlee
 pubDatetime: 2024-05-16T00:00:00+08:00
 modDatetime: 2024-05-16T00:00:00+08:00
 title: 如何在windows环境下运行wordpress项目
-slug: How to run wordpress project in windows environment
+slug: wordpress-nginx-php
 featured: true
 draft: false
 tags:

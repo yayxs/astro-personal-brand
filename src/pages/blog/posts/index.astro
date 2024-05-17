@@ -1,0 +1,10 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content'
+import Posts from '~/layouts/Posts.astro'
+
+//
+
+const posts = await getCollection('blog')
+---
+
+<Posts paginatedPosts={posts} />

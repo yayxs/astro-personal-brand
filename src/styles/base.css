@@ -1,5 +1,22 @@
-/* ===== svg ===== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-svg {
-  @apply inline-block h-6 w-6;
+@layer base {
+  svg {
+    @apply inline-block h-6 w-6;
+  }
+
+  /* ===== scrollbar ===== */
+  html {
+    overflow-y: auto;
+  }
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-3;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300;
+  }
 }

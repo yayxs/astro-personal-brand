@@ -1,0 +1,20 @@
+---
+import { type CollectionEntry } from 'astro:content'
+import Card from '~/components/Card'
+
+export interface Props {
+  paginatedPosts: CollectionEntry<'blog'>[]
+}
+
+const { paginatedPosts } = Astro.props
+---
+
+<ul>
+  {
+    paginatedPosts.map(({ data, slug }) => (
+      <>
+        <Card href={`/blog/posts/${slug}/`} frontmatter={data} />
+      </>
+    ))
+  }
+</ul>

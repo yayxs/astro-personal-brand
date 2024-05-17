@@ -1,0 +1,27 @@
+---
+export const prerender = true
+import { getCollection, type CollectionEntry } from 'astro:content'
+import PostDetails from '~/layouts/PostDetails.astro'
+
+export interface Props {
+  post: CollectionEntry<'blog'>
+}
+
+// docs https://docs.astro.build/zh-cn/reference/api-reference/#getstaticpaths
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+  const postRes = posts.map((post) => ({
+    params: {
+      slug: post.slug,
+    },
+    props: { post },
+  }))
+
+  return [...postRes]
+}
+
+const { post } = Astro.props
+---
+
+<PostDetails post={post} />

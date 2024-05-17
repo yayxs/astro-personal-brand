@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev --port 3000",
-    "build": "astro build"
+    "build": "astro build",
+    "info": "astro info"
   },
   "keywords": [
     "nginx",
@@ -12,18 +13,25 @@
     "wordpress"
   ],
   "dependencies": {
+    "@astrojs/react": "^3.3.4",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/vercel": "^7.6.0",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
     "astro": "^4.8.3",
     "astro-icon": "^1.1.0",
     "github-slugger": "^2.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
     "@iconify-json/fa-brands": "^1.1.8",
     "@iconify-json/mdi": "^1.1.66",
+    "@tailwindcss/typography": "^0.5.13",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-tailwindcss": "^0.5.14"
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "typescript": "^5.4.5"
   }
 }
