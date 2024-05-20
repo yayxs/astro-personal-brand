@@ -1,9 +1,15 @@
 ---
 export const prerender = true
-import { getCollection } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content'
+import { MdxComponents } from '~/components/MdxComponents'
 import { DashboardTableOfContents } from '~/components/Toc'
+import DocsSidebarNav from '~/layouts/SidebarNav.astro'
+
 import Layout from '~/layouts/Layout.astro'
 import { getTableOfContents } from '~/utils/toc'
+import { docsConfig } from '~/config'
+import DocsLayout from '~/layouts/DocsLayout.astro'
+import { ScrollArea } from '~/components/ui/ScrollArea'
 
 export async function getStaticPaths() {
   const docs = await getCollection('docs')
@@ -35,6 +41,7 @@ export async function getStaticPaths() {
 }
 
 const doc = Astro.props
+const { Content } = await doc.render()
 
 // console.log('--', doc)
 
@@ -42,12 +49,32 @@ const doc = Astro.props
 const toc = await getTableOfContents(doc.body)
 ---
 
-<Layout>
-  <div class="hidden text-sm xl:block">
+<DocsLayout title={doc.data.title} description={doc.data.description}>
+  <div class="container mx-auto flex-1 p-[1rem]">
     <div
-      class="sticky top-20 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10"
+      class="flex-1 md:grid md:grid-cols-[220px_1fr] md:gap-6 lg:grid-cols-[240px_1fr] lg:gap-10"
     >
-      <DashboardTableOfContents toc={toc} client:load />
+      <aside
+        class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block"
+      >
+        <ScrollArea className="h-full py-6 pr-6 lg:py-8" client:load>
+          <DocsSidebarNav items={docsConfig.sidebarNav} />
+        </ScrollArea>
+      </aside>
+      <main
+        class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]"
+      >
+        <div class="mx-auto w-full min-w-0">
+          <Content components={MdxComponents} />
+        </div>
+        <div class="hidden text-sm xl:block">
+          <div
+            class="sticky top-20 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10"
+          >
+            <DashboardTableOfContents toc={toc} client:load />
+          </div>
+        </div>
+      </main>
     </div>
   </div>
-</Layout>
+</DocsLayout>
