@@ -1,0 +1,53 @@
+---
+export const prerender = true
+import { getCollection } from 'astro:content'
+import { DashboardTableOfContents } from '~/components/Toc'
+import Layout from '~/layouts/Layout.astro'
+import { getTableOfContents } from '~/utils/toc'
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs')
+  // console.log('docs', docs)
+  /**
+   * docs [
+  {
+    id: 'getting-started.mdx',
+    slug: 'getting-started',
+    body: '\nget start\n',
+    collection: 'docs',
+    data: {
+      title: 'Getting started',
+      description: 'Welcome to the  documentation.'
+    },
+    render: [AsyncFunction: render]
+  }
+]
+   */
+
+  return docs.map((doc) => {
+    return {
+      params: {
+        slug: doc.slug,
+      },
+      props: doc,
+    }
+  })
+}
+
+const doc = Astro.props
+
+// console.log('--', doc)
+
+// 获取 `### 标题`
+const toc = await getTableOfContents(doc.body)
+---
+
+<Layout>
+  <div class="hidden text-sm xl:block">
+    <div
+      class="sticky top-20 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10"
+    >
+      <DashboardTableOfContents toc={toc} client:load />
+    </div>
+  </div>
+</Layout>
