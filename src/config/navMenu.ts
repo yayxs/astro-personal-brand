@@ -21,9 +21,10 @@ export const navMenuConfig = {
       title: 'CSS',
       items: [
         {
-          title: 'xxxxxx',
-          href: '/landing',
-          description: 'A landing page template with differents sections.',
+          title: 'CSS',
+          href: '/learn/css',
+          description:
+            'Learn the original Cascading Style Sheets, no frameworks, no libraries',
         },
         {
           title: 'bbbbbb',
