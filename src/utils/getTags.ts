@@ -40,8 +40,6 @@ const postFilter = (post: CollectionEntry<'blog'>) => {
 const sluggerStr = (str: string) => slugger(str)
 
 const getUniqueTags = (posts: CollectionEntry<'blog'>[]) => {
-  console.log('posts')
-
   const tags: Tag[] = posts
     .filter(postFilter)
     .flatMap((post) => post.data.tags)

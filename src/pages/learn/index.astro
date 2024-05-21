@@ -1,1 +1,11 @@
-<div>learn</div>
+---
+import Header from '~/components/Header.astro'
+import { MainNavigationMenu } from '~/components/MainNavigationMenu'
+import BaseLayout from '~/layouts/BaseLayout.astro'
+---
+
+<BaseLayout>
+  <Header className="border-b">
+    <MainNavigationMenu slot="left-header" client:load />
+  </Header>
+</BaseLayout>
